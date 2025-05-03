@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects - EduApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-indigo-100 to-purple-100 min-h-screen">
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="{{ url_for('dashboard') }}" class="text-2xl font-bold text-indigo-800"><i class="fas fa-home mr-2"></i> EduApp</a>
+            <h1 class="text-2xl font-bold text-indigo-800 animate-bounce text-center flex-1">Welcome, {{ username }}!</h1>
+            <div class="bg-yellow-400 text-white px-4 py-2 rounded-full shadow-md"><i class="fas fa-coins mr-2"></i> {{ coins }} Coins</div>
+        </div>
+        <nav class="bg-indigo-800">
+            <div class="max-w-7xl mx-auto px-4 py-2">
+                <ul class="flex space-x-4 justify-center">
+                    <li><a href="{{ url_for('subjects') }}" class="text-white px-4 py-2 rounded-lg bg-indigo-600"><i class="fas fa-book mr-2"></i> Subjects</a></li>
+                    <li><a href="{{ url_for('practice') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-pencil-alt mr-2"></i> Practice</a></li>
+                    <li><a href="{{ url_for('tracking') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-chart-line mr-2"></i> Tracking</a></li>
+                    <li><a href="{{ url_for('check_in') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-star mr-2"></i> Check-In</a></li>
+                    <li><a href="{{ url_for('profile') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-user mr-2"></i> Profile</a></li>
+                    <li><a href="{{ url_for('settings') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-cog mr-2"></i> Settings</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-indigo-800 mb-6 animate-pulse">Subjects</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for subject in subjects %}
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-book text-3xl text-indigo-600 mb-2"></i>
+                    <h3 class="text-xl font-semibold">{{ subject }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

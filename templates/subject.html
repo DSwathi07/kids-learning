@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subject|capitalize }} - EduApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ subject|capitalize }}</h1>
+        {% if content.varnamala %}
+            <h2>Varnamala</h2>
+            <ul>
+                {% for letter in content.varnamala %}
+                    <li>{{ letter }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if content.alphabets %}
+            <h2>Alphabets</h2>
+            <ul>
+                {% for letter in content.alphabets %}
+                    <li>{{ letter }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if content.guninthalu %}
+            <h2>Guninthalu</h2>
+            <ul>
+                {% for item in content.guninthalu %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if content.geyalu %}
+            <h2>Geyalu</h2>
+            <ul>
+                {% for song in content.geyalu %}
+                    <li>{{ song }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if content.rhymes %}
+            <h2>Rhymes</h2>
+            <ul>
+                {% for rhyme in content.rhymes %}
+                    <li>{{ rhyme }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if content.numbers %}
+            <h2>Numbers</h2>
+            <ul>
+                {% for number in content.numbers %}
+                    <li>{{ number }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if content.tables %}
+            <h2>Tables</h2>
+            <ul>
+                {% for table in content.tables %}
+                    <li>{{ table }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if content.roman %}
+            <h2>Roman Numbers</h2>
+            <ul>
+                {% for roman in content.roman %}
+                    <li>{{ roman }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if content.photolu or content.photos or content.pics %}
+            <h2>Photos</h2>
+            <div class="photo-gallery">
+                {% for item in content.photolu or content.photos or content.pics %}
+                    <div class="photo">
+                        <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.word }}">
+                        <p>{{ item.letter or item.number }} - {{ item.word }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <a href="{{ url_for('subjects') }}" class="btn">Back to Subjects</a>
+    </div>
+</body>
+</html>

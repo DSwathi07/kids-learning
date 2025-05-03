@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - EduApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-indigo-100 to-purple-100 min-h-screen flex items-center justify-center">
+    <div class="text-center">
+        <h1 class="text-4xl font-bold text-indigo-800 mb-8 animate-pulse">Welcome to EduApp!</h1>
+        <div class="space-x-4">
+            <a href="{{ url_for('login') }}" class="inline-block bg-gradient-to-r from-indigo-500 to-indigo-700 text-white px-8 py-4 rounded-full shadow-lg hover:from-indigo-600 hover:to-indigo-800 transition duration-300"><i class="fas fa-sign-in-alt mr-2"></i> Login</a>
+            <a href="{{ url_for('register') }}" class="inline-block bg-gradient-to-r from-green-500 to-green-700 text-white px-8 py-4 rounded-full shadow-lg hover:from-green-600 hover:to-green-800 transition duration-300"><i class="fas fa-user-plus mr-2"></i> Register</a>
+        </div>
+    </div>
+</body>
+</html>

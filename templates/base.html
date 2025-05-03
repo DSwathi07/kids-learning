@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}EduApp{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        {% if 'user_id' in session %}
+        <div class="welcome">Welcome, {{ session.full_name }}! Coins: {{ session.coins }}</div>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="dropdown" id="dropdownMenu">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="#">My Profile</a>
+            <a href="{{ url_for('subjects') }}">Subjects</a>
+            <a href="{{ url_for('tracking') }}">Tracking</a>
+            <a href="{{ url_for('checkin') }}">Check-In</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+        {% endif %}
+    </div>
+    <div class="main-content">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

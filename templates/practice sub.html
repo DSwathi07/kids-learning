@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice {{ subject|capitalize }} - EduApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Practice {{ subject|capitalize }}</h1>
+        <form method="POST" action="{{ url_for('submit_practice', subject=subject) }}">
+            {% for i, question in enumerate(questions) %}
+                <div class="question">
+                    <p>{{ question.q }}</p>
+                    {% for option in question.options %}
+                        <label>
+                            <input type="radio" name="q{{ i }}" value="{{ option }}" required>
+                            {{ option }}
+                        </label>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <a href="{{ url_for('practice') }}" class="btn">Back to Practice</a>
+    </div>
+</body>
+</html>
