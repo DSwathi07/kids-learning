@@ -3,36 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}EduApp{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
 <body>
-    <div class="header">
-        {% if 'user_id' in session %}
-        <div class="welcome">Welcome, {{ session.full_name }}! Coins: {{ session.coins }}</div>
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-        <div class="dropdown" id="dropdownMenu">
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="#">My Profile</a>
+    <header>
+        <h1>Language Learning App</h1>
+        {% if session.user_id %}
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('profile') }}">Profile</a>
             <a href="{{ url_for('subjects') }}">Subjects</a>
             <a href="{{ url_for('tracking') }}">Tracking</a>
-            <a href="{{ url_for('checkin') }}">Check-In</a>
-            <a href="{{ url_for('logout') }}">Logout</a>
-        </div>
+            <a href="{{ url_for('checkin') }}">Check-in</a>
+        </nav>
         {% endif %}
-    </div>
-    <div class="main-content">
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="flash-messages">
-                    {% for message in messages %}
-                        <p>{{ message }}</p>
-                    {% endfor %}
-                </div>
-            {% endif %}
+    </header>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flashes">
+            {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         {% endwith %}
-        {% block content %}{% endblock %}
-    </div>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

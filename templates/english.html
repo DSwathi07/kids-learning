@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}English{% endblock %}
+{% block content %}
+<h2>English</h2>
+<h3>Alphabets</h3>
+<ul>
+    {% for letter in alphabets %}
+    <li>{{ letter }}</li>
+    {% endfor %}
+</ul>
+<h3>Rhymes</h3>
+{% for rhyme in rhymes %}
+<div>
+    <h4>{{ rhyme.title }}</h4>
+    <p>{{ rhyme.content }}</p>
+</div>
+{% endfor %}
+<h3>Photos</h3>
+<div class="photos">
+    {% for photo in photos %}
+    <div>
+        <p>{{ photo.letter }} - {{ photo.word }}</p>
+        <img src="{{ url_for('static', filename='images/' + photo.image) }}" alt="{{ photo.word }}" width="100">
+    </div>
+    {% endfor %}
+</div>
+<a href="{{ url_for('practice', subject='english') }}">Try Practice</a>
+{% endblock %}

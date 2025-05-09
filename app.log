@@ -1,0 +1,57 @@
+
+2025-05-03 22:33:58,173 INFO: Database initialized successfully
+2025-05-03 22:33:58,208 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-03 22:33:58,208 INFO: [33mPress CTRL+C to quit[0m
+2025-05-03 22:33:58,209 INFO:  * Restarting with stat
+2025-05-03 22:33:58,554 INFO: Database initialized successfully
+2025-05-03 22:33:58,556 ERROR: Port 5000 is in use: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-05-03 22:33:58,574 WARNING:  * Debugger is active!
+2025-05-03 22:33:58,578 INFO:  * Debugger PIN: 941-848-618
+2025-05-03 22:41:58,676 INFO: Database initialized successfully
+2025-05-03 22:41:58,704 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-03 22:41:58,704 INFO: [33mPress CTRL+C to quit[0m
+2025-05-03 22:41:58,707 INFO:  * Restarting with stat
+2025-05-03 22:41:59,009 INFO: Database initialized successfully
+2025-05-03 22:41:59,013 ERROR: Port 5000 is in use: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-05-03 22:41:59,026 WARNING:  * Debugger is active!
+2025-05-03 22:41:59,030 INFO:  * Debugger PIN: 941-848-618
+2025-05-04 17:14:56,805 INFO: Database initialized successfully
+2025-05-04 17:14:56,921 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-04 17:14:56,921 INFO: [33mPress CTRL+C to quit[0m
+2025-05-04 17:14:56,925 INFO:  * Restarting with stat
+2025-05-04 17:14:57,537 INFO: Database initialized successfully
+2025-05-04 17:14:57,540 ERROR: Port 5000 is in use: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-05-04 17:14:57,561 WARNING:  * Debugger is active!
+2025-05-04 17:14:57,568 INFO:  * Debugger PIN: 941-848-618
+%(asctime)s %(levelname)s: %(message)s
+%(asctime)s %(levelname)s: %(message)s
+%(asctime)s %(levelname)s: %(message)s
+%(asctime)s %(levelname)s: %(message)s
+%(asctime)s %(levelname)s: %(message)s
+%(asctime)s %(levelname)s: %(message)s
+2025-05-04 17:40:35,845 INFO: Database initialized successfully
+2025-05-04 17:40:35,906 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.207.229:5000
+2025-05-04 17:40:35,906 INFO: [33mPress CTRL+C to quit[0m
+2025-05-04 17:40:35,909 INFO:  * Restarting with stat
+2025-05-04 17:40:36,271 INFO: Database initialized successfully
+2025-05-04 17:40:36,273 ERROR: Port 5000 is in use: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-05-04 17:40:36,299 WARNING:  * Debugger is active!
+2025-05-04 17:40:36,306 INFO:  * Debugger PIN: 941-848-618
+2025-05-04 17:59:28,483 INFO: Starting EduApp
+2025-05-04 17:59:28,484 INFO: Database initialized successfully
+2025-05-04 17:59:28,530 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.207.229:5000
+2025-05-04 17:59:28,530 INFO: [33mPress CTRL+C to quit[0m
+2025-05-04 17:59:28,533 INFO:  * Restarting with stat
+2025-05-04 17:59:28,894 INFO: Starting EduApp
+2025-05-04 17:59:28,896 INFO: Database initialized successfully
+2025-05-04 17:59:28,905 WARNING:  * Debugger is active!
+2025-05-04 17:59:28,911 INFO:  * Debugger PIN: 941-848-618

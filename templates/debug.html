@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Debug Templates{% endblock %}
+{% block content %}
+<h2>Available Templates</h2>
+<div class="debug-container">
+    {% if templates %}
+    <ul>
+        {% for template in templates %}
+        <li>{{ template }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No templates found in the templates/ folder.</p>
+    {% endif %}
+</div>
+{% endblock %}

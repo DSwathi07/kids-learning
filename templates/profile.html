@@ -1,62 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - EduApp</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="bg-gradient-to-br from-indigo-100 to-purple-100 min-h-screen">
-    <header class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="{{ url_for('dashboard') }}" class="text-2xl font-bold text-indigo-800"><i class="fas fa-home mr-2"></i> EduApp</a>
-            <h1 class="text-2xl font-bold text-indigo-800 animate-bounce text-center flex-1">Welcome, {{ username }}!</h1>
-            <div class="bg-yellow-400 text-white px-4 py-2 rounded-full shadow-md"><i class="fas fa-coins mr-2"></i> {{ coins }} Coins</div>
-        </div>
-        <nav class="bg-indigo-800">
-            <div class="max-w-7xl mx-auto px-4 py-2">
-                <ul class="flex space-x-4 justify-center">
-                    <li><a href="{{ url_for('subjects') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-book mr-2"></i> Subjects</a></li>
-                    <li><a href="{{ url_for('practice') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-pencil-alt mr-2"></i> Practice</a></li>
-                    <li><a href="{{ url_for('tracking') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-chart-line mr-2"></i> Tracking</a></li>
-                    <li><a href="{{ url_for('check_in') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-star mr-2"></i> Check-In</a></li>
-                    <li><a href="{{ url_for('profile') }}" class="text-white px-4 py-2 rounded-lg bg-indigo-600"><i class="fas fa-user mr-2"></i> Profile</a></li>
-                    <li><a href="{{ url_for('settings') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-cog mr-2"></i> Settings</a></li>
-                    <li><a href="{{ url_for('logout') }}" class="text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-300"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main class="max-w-7xl mx-auto px-4 py-8">
-        <h2 class="text-3xl font-bold text-indigo-800 mb-6 animate-pulse">Your Profile</h2>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <p class="text-green-500 text-center mb-4">{{ messages[-1] }}</p>
-            {% endif %}
-        {% endwith %}
-        <div class="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-xl">
-            <div class="text-center mb-6">
-                <img src="{{ profile.profile_pic_url }}" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                <h3 class="text-2xl font-semibold text-indigo-800">{{ profile.name or 'Set your name' }}</h3>
-            </div>
-            <form method="POST" action="{{ url_for('profile') }}">
-                <div class="mb-4">
-                    <label for="name" class="block text-indigo-700 font-semibold">Name</label>
-                    <input type="text" name="name" id="name" value="{{ profile.name }}" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500" required>
-                </div>
-                <div class="mb-4">
-                    <label for="dob" class="block text-indigo-700 font-semibold">Date of Birth</label>
-                    <input type="date" name="dob" id="dob" value="{{ profile.dob }}" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500">
-                </div>
-                <div class="mb-6">
-                    <label for="profile_pic_url" class="block text-indigo-700 font-semibold">Profile Picture URL</label>
-                    <input type="url" name="profile_pic_url" id="profile_pic_url" value="{{ profile.profile_pic_url }}" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500">
-                </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-indigo-700 text-white p-3 rounded-lg hover:from-indigo-600 hover:to-indigo-800 transition duration-300"><i class="fas fa-save mr-2"></i> Update Profile</button>
-            </form>
-        </div>
-    </main>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<h2>Profile</h2>
+<form method="post" enctype="multipart/form-data">
+    <label for="full_name">Full Name:</label>
+    <input type="text" id="full_name" name="full_name" value="{{ profile[0] or '' }}">
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" value="{{ profile[1] or '' }}">
+    <label for="profile_pic">Profile Picture:</label>
+    <input type="file" id="profile_pic" name="profile_pic">
+    <label for="new_password">New Password:</label>
+    <input type="password" id="new_password" name="new_password">
+    <button type="submit">Update Profile</button>
+</form>
+{% if profile[2] %}
+    <img src="{{ url_for('static', filename='images/' + profile[2]) }}" alt="Profile Picture" width="100">
+{% endif %}
+{% endblock %}
