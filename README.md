@@ -130,7 +130,7 @@ Run the Application:
 python app.py
 
 
-Open http://localhost:5000 in a browser.
+Open http://127.0.0.1:5000 in a browser.
 The app starts in debug mode for development.
 
 
