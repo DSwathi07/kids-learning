@@ -1,5 +1,8 @@
 PROJECT TITLE : Kids Learning App
+
 Video Demo : https://youtu.be/3HuaCruxULc
+
+
 Description:
 
 The Kids Learning App is a vibrant, Flask-based web application designed to make learning fun for children. It provides interactive modules for Telugu, English, Hindi, and Maths, with features like daily check-ins, practice quizzes, and progress tracking. The app prioritizes a kid-friendly interface with bright colors (pink, blue, yellow), large buttons, and the playful Bubblegum Sans font, ensuring accessibility for young users. Built with Python, Flask, SQLite, and Jinja2, it supports user registration, profile management, and a contact form, all tailored for ease of use on desktops and mobile devices (<600px screens). This project was developed to create an engaging educational tool, addressing challenges like template errors during implementation.
