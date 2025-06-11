@@ -75,6 +75,9 @@ If TemplateNotFound errors occur, check templates/checkin.html and templates/con
 
 Future Improvements
 
+submit50 cs50/problems/2025/x/project
+
+
 Add Flask-Mail for Contact Us email notifications.
 Implement animations (e.g., CSS keyframes for button clicks).
 Expand quiz questions and subject content.
