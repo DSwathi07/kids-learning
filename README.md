@@ -75,7 +75,7 @@ If TemplateNotFound errors occur, check templates/checkin.html and templates/con
 
 Future Improvements
 
-submit50 cs50/problems/2025/x/project
+submit50
 
 
 Add Flask-Mail for Contact Us email notifications.
